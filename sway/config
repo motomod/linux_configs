@@ -94,6 +94,7 @@ focus_follows_mouse no
 
     bindsym $mod+c exec google-chrome
     bindsym $mod+m exec slack
+    bindsym $mod+p exec jetbrains-toolbox
 
 #
 # Moving around:
