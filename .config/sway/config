@@ -95,6 +95,8 @@ focus_follows_mouse no
     bindsym $mod+c exec google-chrome
     bindsym $mod+m exec slack
     bindsym $mod+p exec jetbrains-toolbox
+    bindsym $mod+b exec dbeaver
+    bindsym $mod+Escape exec swaylock
 
 #
 # Moving around:
@@ -153,7 +155,7 @@ focus_follows_mouse no
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+h splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -209,6 +211,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+bindsym Control+Shift+4 exec grim -g "$(slurp)" $(xdg-user-dir PICTURES)/$(date +%Y-%m-%d_%H-%m-%s).png
+
 #
 # Status Bar:
 #
@@ -228,6 +232,14 @@ bar {
  #   }
 }
 
-output HDMI-A-1 scale 1.2
+output HDMI-A-1 scale 1
+
+exec swayidle -w \
+      timeout 300 'swaylock -f -c 000000' \
+      timeout 600 'swaymsg "output * dpms off"' \
+      resume 'swaymsg "output * dpms on"' \
+      before-sleep 'swaylock -f -c 000000'
+
+exec mako
 
 include /etc/sway/config.d/*
