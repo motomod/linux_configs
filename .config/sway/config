@@ -93,6 +93,7 @@ focus_follows_mouse no
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
     bindsym $mod+c exec google-chrome
+    bindsym $mod+o exec google-chrome --app=https://outlook.office365.com/mail
     bindsym $mod+m exec slack
     bindsym $mod+p exec jetbrains-toolbox
     bindsym $mod+b exec dbeaver
